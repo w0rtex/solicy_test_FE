@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+// Get all users
+import {getAllAccounts} from "./services/accounts.service";
 
 function App() {
+
+    const [accounts, setAccounts] = React.useState([]);
+
+    React.useEffect(() => {
+        getAllAccounts().then(accounts => {
+            setAccounts(accounts);
+        })
+    }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {accounts.map((account: any) => (
+            <div key={account.id}>
+                <h1>{account.name}</h1>
+                <p>{account.date}</p>
+            </div>
+          )
+      )}
     </div>
   );
 }
