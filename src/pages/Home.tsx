@@ -1,14 +1,16 @@
 import React from "react";
-import { Table, Button } from "antd";
+import { Table, Button, PageHeader } from "antd";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 // Styled
 import Page from "../components/Page.styled";
 
-// Accounts
+// Get accounts hook
 import { getAllAccounts } from "../services/accounts.service";
 
 const Home = () => {
+    // Create empty array for accounts to be inserted into
     const [accounts, setAccounts] = React.useState([]);
 
     React.useEffect(() => {
@@ -50,9 +52,24 @@ const Home = () => {
     ];
 
     return (
-        <Page>
-            <Table dataSource={accounts} columns={columns} />
-        </Page>
+        <>
+            <Helmet>
+                <title>Viewing all accounts</title>
+            </Helmet>
+            <Page>
+                <PageHeader
+                    ghost={false}
+                    title={"Accounts list for Solicy test task."}
+                />
+                <Table
+                    dataSource={accounts}
+                    columns={columns}
+                    style={{
+                        marginTop: "30px",
+                    }}
+                />
+            </Page>
+        </>
     );
 };
 

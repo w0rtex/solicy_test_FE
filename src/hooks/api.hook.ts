@@ -13,6 +13,9 @@ export const GET = (request: string) =>
             return response.data;
         })
         .catch(function (error: Error) {
+            // Redirect to the main page
+            window.location.href = "/";
+
             // Handle error
             throw error;
         });

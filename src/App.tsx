@@ -10,6 +10,9 @@ import GlobalStyles from "./styles/Global.styled";
 // Antd stylesheet
 import "antd/dist/antd.css";
 
+// Components
+import Footer from "./components/Footer";
+
 // Pages
 const Home = lazy(() => import("./pages/Home"));
 const Account = lazy(() => import("./pages/Account"));
@@ -26,6 +29,8 @@ function App() {
                         <Route path="accounts/:id" element={<Account />} />
                     </Routes>
                 </Suspense>
+
+                <Footer />
             </Router>
         </>
     );

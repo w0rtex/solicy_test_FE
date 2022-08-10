@@ -1,7 +1,8 @@
 export interface AccountInterface {
-    simpleId: string;
+    simpleId: number;
     owner: string;
     date: string;
     name: string;
     _id: string;
+    updatedOn: string;
 }
