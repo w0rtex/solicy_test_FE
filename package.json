@@ -42,6 +42,11 @@
     ]
   },
   "devDependencies": {
-    "axios": "^0.27.2"
+    "@types/styled-components": "^5.1.25",
+    "antd": "^4.22.4",
+    "axios": "^0.27.2",
+    "prettier": "^2.7.1",
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5"
   }
 }
